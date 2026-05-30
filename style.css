@@ -853,6 +853,83 @@ footer {
   color: var(--accent-electric);
 }
 
+/* ── STORM SELECTOR & STATS ── */
+.storm-selector-grid {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+@media(min-width: 480px) {
+  .storm-selector-grid {
+    grid-template-cols: 1fr 1fr;
+  }
+}
+
+.storm-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--panel-border);
+  color: var(--text-secondary);
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  width: 100%;
+}
+
+.storm-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-primary);
+  border-color: var(--text-secondary);
+}
+
+.storm-btn.active {
+  background: var(--accent-cobalt);
+  border-color: var(--accent-cobalt);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.storm-stats-container {
+  display: grid;
+  grid-template-cols: 1fr;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid var(--panel-border);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+@media(min-width: 480px) {
+  .storm-stats-container {
+    grid-template-cols: 1fr 1fr;
+  }
+}
+
+.storm-stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.stat-val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   nav ul {

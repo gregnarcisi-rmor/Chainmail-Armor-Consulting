@@ -174,50 +174,80 @@
             </div>
         </section>
 
-        <!-- ── CALCULATOR SECTION ── -->
+        <!-- ── CALCULATOR & CAT DATA SECTION ── -->
         <section id="estimator">
             <div class="container">
                 <div class="section-header">
-                    <span class="section-subtitle">Compliance Tool</span>
-                    <h2 class="section-title text-gradient-gold">Catastrophe Statutory SLA Estimator</h2>
+                    <span class="section-subtitle">Catastrophe Data & Compliance</span>
+                    <h2 class="section-title text-gradient-gold">Catastrophe Impact & SLA Estimator</h2>
                 </div>
                 
                 <div class="calc-panel">
                     <div class="calc-inputs">
-                        <h3>Calculate Statutory Timelines</h3>
-                        <p>Select your jurisdiction and input the claim report/loss date below to instantly compute the mandatory statutory response, inspection, and payment deadlines.</p>
+                        <h3>Select Catastrophe Event</h3>
+                        <p>Analyze how major storm volumes stress claims pipelines. Choose a historical event to view statistics and compliance deadlines, or simulate a custom date.</p>
                         
-                        <form id="sla-calc-form" onsubmit="return false;">
+                        <div class="storm-selector-grid">
+                            <button class="storm-btn active" data-storm="ian">Hurricane Ian (2022)</button>
+                            <button class="storm-btn" data-storm="ida">Hurricane Ida (2021)</button>
+                            <button class="storm-btn" data-storm="harvey">Hurricane Harvey (2017)</button>
+                            <button class="storm-btn" data-storm="irma">Hurricane Irma (2017)</button>
+                            <button class="storm-btn" data-storm="sandy">Superstorm Sandy (2012)</button>
+                            <button class="storm-btn" data-storm="custom">Simulate Custom Event...</button>
+                        </div>
+
+                        <!-- Date simulator fields (hidden by default, shown when custom selected) -->
+                        <div id="custom-sim-fields" style="display: none; margin-top: 24px; border-top: 1px dashed var(--panel-border); padding-top: 20px;">
                             <div class="form-group">
                                 <label for="state-select">Select Jurisdiction</label>
-                                <select id="state-select" class="form-control" onchange="document.getElementById('calculate-btn').click();">
+                                <select id="state-select" class="form-control">
                                     <option value="FL">Florida (Property Insurance Reform SB 2-D)</option>
                                     <option value="NY">New York (Regulation 64 / Part 216)</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label for="claim-date">Claim Reported Date</label>
-                                <input type="date" id="claim-date" class="form-control" onchange="document.getElementById('calculate-btn').click();">
+                                <input type="date" id="claim-date" class="form-control">
                             </div>
-                            <button type="button" id="calculate-btn" class="btn btn-primary" style="display: none;">Calculate Deadline</button>
-                        </form>
+                        </div>
                     </div>
                     
                     <div class="calc-results">
                         <div>
                             <div class="results-header">
-                                <span class="results-title">Calculated Milestones</span>
-                                <span class="results-status">
-                                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-                                    Compliant Workflow
+                                <span class="results-title" id="results-panel-title">Hurricane Ian Metrics</span>
+                                <span class="results-status" id="results-status-badge">
+                                    <span style="width: 8px; height: 8px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+                                    SLA Stress: Extreme
                                 </span>
                             </div>
-                            <div class="results-grid">
+                            
+                            <!-- Stat block -->
+                            <div class="storm-stats-container" id="storm-stats-block">
+                                <div class="storm-stat-item">
+                                    <span class="stat-label">Est. Insured Losses</span>
+                                    <span class="stat-val" id="stat-damage">$54 Billion+</span>
+                                </div>
+                                <div class="storm-stat-item">
+                                    <span class="stat-label">Claims Volume</span>
+                                    <span class="stat-val" id="stat-claims">~700,000 Claims</span>
+                                </div>
+                                <div class="storm-stat-item">
+                                    <span class="stat-label">Primary SLA State</span>
+                                    <span class="stat-val" id="stat-state">Florida (SB 2-D / 4-A)</span>
+                                </div>
+                                <div class="storm-stat-item">
+                                    <span class="stat-label">Loss Cost Driver</span>
+                                    <span class="stat-val" id="stat-driver">Wind & Storm Surge</span>
+                                </div>
+                            </div>
+
+                            <div class="results-grid" style="margin-top: 20px; border-top: 1px dashed var(--panel-border); padding-top: 20px;">
                                 <!-- Results populated dynamically by app.js -->
                             </div>
                         </div>
-                        <p class="calc-disclaimer">
-                            Disclaimer: This tool calculates statutory timeline baselines for claims handling based on Florida SB 2-D and NY Regulation 64 requirements. Adjuster guidelines, policy variations, and CAT extensions declared by local state insurance departments may alter actual deadlines.
+                        <p class="calc-disclaimer" id="calc-disclaimer-text">
+                            Disclaimer: Statistics represent industry averages compiled from NOAA, ISO Verisk, and state reports. SLA timelines outline critical response requirements under standard statutory rules.
                         </p>
                     </div>
                 </div>
