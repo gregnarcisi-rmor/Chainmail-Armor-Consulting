@@ -672,6 +672,38 @@ section {
   margin-bottom: 8px;
 }
 
+.team-social {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  border-top: 1px dashed var(--panel-border);
+  padding-top: 16px;
+}
+
+.team-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.team-social-link:hover {
+  color: var(--accent-cyan);
+}
+
+.team-social-link svg {
+  color: var(--accent-cyan);
+  transition: var(--transition-smooth);
+}
+
+.team-social-link:hover svg {
+  transform: scale(1.1);
+}
+
 /* ── CONTACT FORM SECTION ────────────────────────────────────────────────── */
 .contact-container {
   display: grid;
