@@ -1129,3 +1129,76 @@ footer {
   color: #64748b;
   letter-spacing: 0.1em;
 }
+
+/* ── BACKGROUND WATERMARK STYLING ── */
+
+/* Body Light Theme and Dots Override for hybrid design */
+body {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(rgba(37, 99, 235, 0.05) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(37, 99, 235, 0.05) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  color: #334155;
+}
+
+/* Ensure Hero section remains dark */
+.hero {
+  background-color: #050811;
+  background-image: 
+    radial-gradient(rgba(37, 99, 235, 0.03) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(37, 99, 235, 0.03) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  color: var(--text-primary);
+  z-index: 5;
+}
+
+/* Ensure Contact & Footer remain dark */
+#contact {
+  background-color: #050811;
+  background-image: 
+    radial-gradient(rgba(37, 99, 235, 0.03) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(37, 99, 235, 0.03) 1.5px, transparent 1.5px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+  color: var(--text-primary);
+  z-index: 5;
+}
+
+footer {
+  background-color: #050811;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 5;
+}
+
+/* Transparent Background for Light Sections to let the body and watermark show through */
+#services, #leadership {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  z-index: 2;
+}
+
+#estimator, .metrics-section {
+  background-color: rgba(248, 250, 252, 0.85) !important;
+  z-index: 2;
+}
+
+/* Fixed Centered Background Watermark */
+.background-watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70vw;
+  height: 70vw;
+  max-width: 550px;
+  max-height: 550px;
+  background-image: url('assets/Armor Consulting and Training LLC Logo (512 x 512 px).svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.035; /* Very subtle watermark */
+  pointer-events: none; /* Make it non-clickable */
+  z-index: 1; /* Position it above the body but below sections */
+}
