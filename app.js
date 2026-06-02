@@ -303,6 +303,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // Default load: Hurricane Ian
     selectStorm('ian');
 
+    // ── SERVICES TAB SELECTION ──
+    const serviceBtns = document.querySelectorAll('.service-tab-btn');
+    const serviceSlides = document.querySelectorAll('.service-content-slide');
+
+    if (serviceBtns.length > 0 && serviceSlides.length > 0) {
+        serviceBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetService = btn.getAttribute('data-service');
+
+                // Toggle active class on buttons
+                serviceBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Toggle active class on content slides
+                serviceSlides.forEach(slide => {
+                    if (slide.getAttribute('id') === `service-${targetService}`) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    // ── CAPABILITIES TAB SELECTION ──
+    const capabilityBtns = document.querySelectorAll('.capability-tab-btn');
+    const capabilitySlides = document.querySelectorAll('.capability-content-slide');
+
+    if (capabilityBtns.length > 0 && capabilitySlides.length > 0) {
+        capabilityBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetCap = btn.getAttribute('data-capability');
+
+                // Toggle active class on buttons
+                capabilityBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Toggle active class on content slides
+                capabilitySlides.forEach(slide => {
+                    if (slide.getAttribute('id') === `cap-${targetCap}`) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
     // ── CONTACT FORM INTERACTION ──
     const contactForm = document.getElementById('consultation-form');
     const submitBtn = document.getElementById('submit-btn');
