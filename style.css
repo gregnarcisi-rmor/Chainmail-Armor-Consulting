@@ -310,7 +310,7 @@ section {
 
 /* ── SERVICE SHOWCASE LAYOUT ─────────────────────────────────────────────── */
 .services-showcase {
-  margin-top: 48px;
+  margin-top: 24px;
   width: 100%;
 }
 
@@ -318,7 +318,7 @@ section {
   display: flex;
   gap: 16px;
   justify-content: center;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   flex-wrap: wrap;
 }
 
@@ -366,9 +366,8 @@ section {
   background: #ffffff;
   border: 1px solid #cbd5e1;
   border-radius: 24px;
-  padding: 48px;
+  padding: 32px 40px;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
-  min-height: 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -623,7 +622,7 @@ section {
 /* ── TEAM SECTION ────────────────────────────────────────────────────────── */
 .team-grid {
   display: grid;
-  grid-template-cols: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-cols: 1fr 1fr;
   gap: 32px;
 }
 
@@ -1234,6 +1233,15 @@ footer {
 #services, #leadership, #capabilities {
   background-color: rgba(255, 255, 255, 0.65) !important;
   z-index: 2;
+}
+
+#services, #capabilities {
+  padding: 60px 0;
+}
+
+#services .section-header,
+#capabilities .section-header {
+  margin-bottom: 32px;
 }
 
 #estimator, .metrics-section {
