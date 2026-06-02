@@ -267,13 +267,74 @@
                         <h3>Select Catastrophe Event</h3>
                         <p>Analyze how major storm volumes stress claims pipelines. Choose a historical event to view statistics and compliance deadlines, or simulate a custom date.</p>
                         
-                        <div class="storm-selector-grid">
-                            <button class="storm-btn active" data-storm="ian">Hurricane Ian (2022)</button>
-                            <button class="storm-btn" data-storm="ida">Hurricane Ida (2021)</button>
-                            <button class="storm-btn" data-storm="harvey">Hurricane Harvey (2017)</button>
-                            <button class="storm-btn" data-storm="irma">Hurricane Irma (2017)</button>
-                            <button class="storm-btn" data-storm="sandy">Superstorm Sandy (2012)</button>
-                            <button class="storm-btn" data-storm="custom">Simulate Custom Event...</button>
+                        <!-- Storm Selector Carousel -->
+                        <div class="storm-carousel-container">
+                            <div class="storm-carousel-track-wrapper">
+                                <div class="storm-carousel-track">
+                                    <div class="storm-carousel-slide active" data-storm="ian">
+                                        <div class="carousel-img-wrapper">
+                                            <img src="assets/hurricane_ian_track.png" alt="Hurricane Ian NWS Forecast Track" class="carousel-img">
+                                        </div>
+                                        <div class="carousel-slide-title">Hurricane Ian (2022)</div>
+                                    </div>
+                                    <div class="storm-carousel-slide" data-storm="ida">
+                                        <div class="carousel-img-wrapper">
+                                            <img src="assets/hurricane_ida_track.png" alt="Hurricane Ida NWS Forecast Track" class="carousel-img">
+                                        </div>
+                                        <div class="carousel-slide-title">Hurricane Ida (2021)</div>
+                                    </div>
+                                    <div class="storm-carousel-slide" data-storm="harvey">
+                                        <div class="carousel-img-wrapper">
+                                            <img src="assets/hurricane_harvey_track.png" alt="Hurricane Harvey NWS Forecast Track" class="carousel-img">
+                                        </div>
+                                        <div class="carousel-slide-title">Hurricane Harvey (2017)</div>
+                                    </div>
+                                    <div class="storm-carousel-slide" data-storm="irma">
+                                        <div class="carousel-img-wrapper">
+                                            <img src="assets/hurricane_irma_track.png" alt="Hurricane Irma NWS Forecast Track" class="carousel-img">
+                                        </div>
+                                        <div class="carousel-slide-title">Hurricane Irma (2017)</div>
+                                    </div>
+                                    <div class="storm-carousel-slide" data-storm="sandy">
+                                        <div class="carousel-img-wrapper">
+                                            <img src="assets/superstorm_sandy_track.png" alt="Superstorm Sandy NWS Forecast Track" class="carousel-img">
+                                        </div>
+                                        <div class="carousel-slide-title">Superstorm Sandy (2012)</div>
+                                    </div>
+                                    <div class="storm-carousel-slide" data-storm="custom">
+                                        <div class="carousel-img-wrapper custom-sim-placeholder-slide">
+                                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <polyline points="12 6 12 12 16 14"></polyline>
+                                            </svg>
+                                            <span class="custom-sim-text">Jurisdiction & Date Simulation Panel</span>
+                                        </div>
+                                        <div class="carousel-slide-title">Simulate Custom Event...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Controls -->
+                            <button type="button" class="carousel-arrow carousel-arrow-prev" aria-label="Previous Slide">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <button type="button" class="carousel-arrow carousel-arrow-next" aria-label="Next Slide">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+
+                            <!-- Indicators/Dots -->
+                            <div class="carousel-indicators">
+                                <span class="carousel-dot active" data-slide-index="0"></span>
+                                <span class="carousel-dot" data-slide-index="1"></span>
+                                <span class="carousel-dot" data-slide-index="2"></span>
+                                <span class="carousel-dot" data-slide-index="3"></span>
+                                <span class="carousel-dot" data-slide-index="4"></span>
+                                <span class="carousel-dot" data-slide-index="5"></span>
+                            </div>
                         </div>
 
                         <!-- Date simulator fields (hidden by default, shown when custom selected) -->

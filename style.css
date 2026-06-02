@@ -1430,3 +1430,166 @@ footer {
     padding: 24px !important;
   }
 }
+
+/* ── STORM CAROUSEL LAYOUT ── */
+.storm-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 32px auto 0 auto;
+  overflow: visible;
+}
+
+.storm-carousel-track-wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 12px -3px rgba(0, 0, 0, 0.08);
+  background: #02040a; /* Dark background to match meteorological styling */
+}
+
+.storm-carousel-track {
+  display: flex;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+}
+
+.storm-carousel-slide {
+  min-width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: #050811;
+  cursor: pointer;
+}
+
+.carousel-img-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 66.67%; /* 3:2 Aspect Ratio */
+  overflow: hidden;
+}
+
+.carousel-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.storm-carousel-slide:hover .carousel-img {
+  transform: scale(1.04);
+}
+
+.carousel-slide-title {
+  padding: 16px;
+  background: #0d1220;
+  color: #f8fafc;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.storm-carousel-slide.active .carousel-slide-title {
+  color: var(--accent-gold);
+}
+
+/* Placeholder for Sim Panel */
+.custom-sim-placeholder-slide {
+  background: radial-gradient(circle, #0e172e 0%, #050811 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--text-secondary);
+  gap: 16px;
+}
+
+.custom-sim-placeholder-slide svg {
+  color: var(--accent-electric);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.custom-sim-text {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Carousel Control Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: calc(50% - 24px);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.carousel-arrow:hover {
+  background: var(--accent-cobalt);
+  color: #ffffff;
+  border-color: var(--accent-cobalt);
+  transform: scale(1.05);
+}
+
+.carousel-arrow-prev {
+  left: -20px;
+}
+
+.carousel-arrow-next {
+  right: -20px;
+}
+
+/* Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.carousel-dot:hover {
+  background: #94a3b8;
+}
+
+.carousel-dot.active {
+  background: var(--accent-cobalt);
+  transform: scale(1.2);
+}

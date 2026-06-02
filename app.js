@@ -15,7 +15,12 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ── STORM DATA & SLA ESTIMATOR ──
-    const stormBtns = document.querySelectorAll('.storm-btn');
+    // ── STORM CAROUSEL ELEMENTS ──
+    const carouselTrack = document.querySelector('.storm-carousel-track');
+    const slides = document.querySelectorAll('.storm-carousel-slide');
+    const prevBtn = document.querySelector('.carousel-arrow-prev');
+    const nextBtn = document.querySelector('.carousel-arrow-next');
+    const dots = document.querySelectorAll('.carousel-dot');
     const customSimFields = document.getElementById('custom-sim-fields');
     const stateSelect = document.getElementById('state-select');
     const claimDateInput = document.getElementById('claim-date');
@@ -211,15 +216,119 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Bind storm buttons
-    stormBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            stormBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const stormId = btn.getAttribute('data-storm');
-            selectStorm(stormId);
+    // ── STORM CAROUSEL INTERACTION & AUTO-ROTATION ──
+    let currentIndex = 0;
+    const slideCount = slides.length;
+    let autoRotateTimer = null;
+    const autoRotateDelay = 5500; // Rotate every 5.5 seconds for motion
+
+    function updateCarousel(index) {
+        if (index < 0) {
+            index = slideCount - 1;
+        } else if (index >= slideCount) {
+            index = 0;
+        }
+        
+        currentIndex = index;
+        
+        // Slide track by transforming percentage
+        if (carouselTrack) {
+            carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        // Update active class on slides
+        slides.forEach((slide, idx) => {
+            if (idx === currentIndex) {
+                slide.classList.add('active');
+            } else {
+                slide.classList.remove('active');
+            }
         });
-    });
+        
+        // Update active class on indicator dots
+        dots.forEach((dot, idx) => {
+            if (idx === currentIndex) {
+                dot.classList.add('active');
+            } else {
+                dot.classList.remove('active');
+            }
+        });
+        
+        // Update selection in storm calculator
+        const activeSlide = slides[currentIndex];
+        if (activeSlide) {
+            const stormId = activeSlide.getAttribute('data-storm');
+            selectStorm(stormId);
+        }
+    }
+    
+    function startAutoRotate() {
+        if (autoRotateTimer) clearInterval(autoRotateTimer);
+        autoRotateTimer = setInterval(() => {
+            updateCarousel(currentIndex + 1);
+        }, autoRotateDelay);
+    }
+    
+    function stopAutoRotate() {
+        if (autoRotateTimer) {
+            clearInterval(autoRotateTimer);
+            autoRotateTimer = null;
+        }
+    }
+    
+    // Bind click events for navigation
+    if (prevBtn && nextBtn && carouselTrack) {
+        prevBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            stopAutoRotate();
+            updateCarousel(currentIndex - 1);
+            startAutoRotate(); // Resume after manual navigation
+        });
+        
+        nextBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            stopAutoRotate();
+            updateCarousel(currentIndex + 1);
+            startAutoRotate(); // Resume after manual navigation
+        });
+        
+        // Bind dot clicks
+        dots.forEach((dot, idx) => {
+            dot.addEventListener('click', (e) => {
+                e.preventDefault();
+                stopAutoRotate();
+                updateCarousel(idx);
+                startAutoRotate(); // Resume after manual navigation
+            });
+        });
+        
+        // Touch gesture swiping support for mobile phones
+        let startX = 0;
+        let isSwiping = false;
+        
+        carouselTrack.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isSwiping = true;
+            stopAutoRotate();
+        }, { passive: true });
+        
+        carouselTrack.addEventListener('touchend', (e) => {
+            if (!isSwiping) return;
+            isSwiping = false;
+            const diffX = startX - e.changedTouches[0].clientX;
+            if (Math.abs(diffX) > 40) { // Touch drag swipe threshold
+                if (diffX > 0) {
+                    updateCarousel(currentIndex + 1);
+                } else {
+                    updateCarousel(currentIndex - 1);
+                }
+            }
+            startAutoRotate();
+        }, { passive: true });
+        
+        // Start automatic rotation
+        startAutoRotate();
+    }
 
     // Bind custom inputs to recalculate on change
     if (stateSelect) {
