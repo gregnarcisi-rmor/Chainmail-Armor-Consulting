@@ -597,6 +597,14 @@ section {
   justify-content: center;
   color: var(--accent-electric);
   box-shadow: var(--shadow-sm);
+  overflow: hidden; /* Ensure avatar photo stays within border radius */
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 
 .team-card:hover .team-avatar {
