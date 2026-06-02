@@ -928,3 +928,204 @@ footer {
     display: none;
   }
 }
+
+/* ── HYBRID LIGHT THEME STYLES ─────────────────────────────────────────── */
+
+/* Light Sections Base Styling */
+#services, #leadership {
+  background-color: #ffffff;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#estimator {
+  background-color: #f8fafc;
+  color: #0f172a;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Light Section Typography Override */
+#services .section-title,
+#estimator .section-title,
+#leadership .section-title {
+  color: #0f172a;
+  background: none;
+  -webkit-text-fill-color: initial;
+  text-shadow: none;
+}
+
+#services .section-subtitle,
+#estimator .section-subtitle,
+#leadership .section-subtitle {
+  color: #2563eb; /* Strong Cobalt Blue Accent */
+  font-weight: 800;
+}
+
+/* Light Mode Service Cards */
+#services .service-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+#services .service-card h3 {
+  color: #0f172a;
+}
+
+#services .service-card p {
+  color: #475569;
+}
+
+#services .service-bullet-list li {
+  color: #475569;
+}
+
+#services .service-bullet-list svg {
+  color: #2563eb;
+}
+
+#services .service-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.12), 0 4px 6px -2px rgba(37, 99, 235, 0.04);
+}
+
+/* Light Mode Calculator Panel */
+#estimator .calc-panel {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+}
+
+#estimator .calc-inputs h3 {
+  color: #0f172a;
+}
+
+#estimator .calc-inputs p {
+  color: #475569;
+}
+
+#estimator .form-group label {
+  color: #475569;
+}
+
+#estimator .form-control {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  color: #0f172a;
+}
+
+#estimator .form-control:focus {
+  background: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Storm Buttons */
+#estimator .storm-btn {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+#estimator .storm-btn:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+#estimator .storm-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 4px 12px -2px rgba(37, 99, 235, 0.3);
+}
+
+/* Keep Calculator Results Dark for High-Contrast Premium Dashboard Feel */
+#estimator .calc-results {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Team Card (Leadership) overrides */
+#leadership .team-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+}
+
+#leadership .team-card h3 {
+  color: #0f172a;
+}
+
+#leadership .team-title {
+  color: #b78628; /* Deep gold */
+}
+
+#leadership .team-card p {
+  color: #475569;
+}
+
+#leadership .team-avatar {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+  border: 1px solid #cbd5e1;
+}
+
+#leadership .exp-title {
+  color: #64748b;
+}
+
+#leadership .exp-tag {
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  color: #334155;
+}
+
+#leadership .team-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.08), 0 4px 6px -2px rgba(37, 99, 235, 0.03);
+}
+
+/* ── METRICS BANNER STYLING ── */
+.metrics-section {
+  background-color: #f1f5f9;
+  padding: 60px 0;
+  border-bottom: 1px solid #e2e8f0;
+  position: relative;
+  z-index: 10;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-cols: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+
+.metric-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metric-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+  color: #0f172a;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #0f172a 30%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #64748b;
+  letter-spacing: 0.1em;
+}
