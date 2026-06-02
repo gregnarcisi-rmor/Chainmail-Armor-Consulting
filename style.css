@@ -1171,6 +1171,7 @@ footer {
   background-color: #050811;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
   z-index: 5;
+  position: relative;
 }
 
 /* Transparent Background for Light Sections to let the body and watermark show through */
@@ -1198,7 +1199,7 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.035; /* Very subtle watermark */
+  opacity: 0.22; /* Increased opacity to show through translucent sections */
   pointer-events: none; /* Make it non-clickable */
   z-index: 1; /* Position it above the body but below sections */
 }
