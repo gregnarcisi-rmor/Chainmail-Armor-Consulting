@@ -117,34 +117,18 @@ header.scrolled .nav-container {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
   text-decoration: none;
-  color: var(--text-primary);
 }
 
-.logo-icon {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, var(--accent-cobalt), var(--accent-cyan));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: var(--shadow-glow);
+.logo-image {
+  height: 46px;
+  width: auto;
+  display: block;
+  transition: var(--transition-smooth);
 }
 
-.logo-text {
-  font-family: var(--font-heading);
-  font-weight: 900;
-  font-size: 1.3rem;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  font-style: italic;
-}
-
-.logo-text span {
-  color: var(--accent-electric);
+header.scrolled .logo-image {
+  height: 38px;
 }
 
 nav ul {
