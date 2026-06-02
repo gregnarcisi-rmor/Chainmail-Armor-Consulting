@@ -1271,6 +1271,161 @@ footer {
 
 .capability-card p {
   font-size: 0.88rem;
-  color: #475569;
+  color: #1e293b;
   line-height: 1.6;
+}
+
+/* ── READABILITY & CONTRAST ENHANCEMENTS ── */
+#services .service-card p,
+#services .service-bullet-list li,
+#estimator .calc-inputs p,
+#estimator .form-group label,
+#leadership .team-card p,
+.capability-card p {
+  color: #1e293b !important; /* High contrast dark-charcoal text */
+}
+
+.hero h1,
+.section-title {
+  line-height: 1.15 !important; /* Increase line height to prevent letter collision */
+}
+
+/* ── CENTER JUSTIFICATION OVERRIDES ── */
+
+/* Hero */
+.hero {
+  text-align: center;
+}
+.hero-content {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hero-actions {
+  justify-content: center;
+}
+
+/* Service Cards */
+.service-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.service-icon {
+  margin: 0 auto 28px auto;
+}
+.service-bullet-list {
+  display: inline-block;
+  margin: 20px auto 0 auto;
+  text-align: left; /* Keep bullet list left-aligned internally for neatness but centered as a block */
+}
+
+/* Capabilities Cards */
+.capability-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.capability-icon {
+  margin: 0 auto 24px auto;
+}
+
+/* Calculator Panel */
+.calc-inputs {
+  text-align: center;
+}
+.storm-selector-grid {
+  justify-content: center;
+}
+.calc-results {
+  text-align: center;
+}
+.results-header {
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+.result-item {
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+/* Team Cards */
+.team-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.team-avatar {
+  margin: 0 auto 24px auto;
+}
+.team-experience {
+  width: 100%;
+}
+.team-social {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Contact Section */
+.contact-container {
+  grid-template-cols: 1fr !important; /* Single column layout for centered aesthetic */
+  justify-items: center;
+}
+.contact-info {
+  text-align: center;
+  align-items: center;
+  max-width: 600px;
+}
+.contact-method {
+  flex-direction: column;
+  text-align: center;
+}
+.contact-method-icon {
+  margin: 0 auto 12px auto;
+}
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-group label {
+  text-align: center;
+}
+.form-control {
+  text-align: center;
+}
+
+/* ── PHONE & MOBILE USE OPTIMIZATIONS ── */
+@media (max-width: 768px) {
+  /* Prevent large text wrapping issues on narrow mobile displays */
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem) !important;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem) !important;
+  }
+  
+  /* Stack grid layouts cleanly to prevent horizontal overflow */
+  .services-grid, 
+  .capabilities-grid, 
+  .team-grid {
+    grid-template-cols: 1fr !important;
+  }
+  
+  /* Reduce excessive container padding on small phone viewports */
+  .calc-panel {
+    padding: 24px !important;
+  }
+  .service-card, 
+  .capability-card, 
+  .team-card, 
+  .contact-form {
+    padding: 24px !important;
+  }
 }
