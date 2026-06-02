@@ -23,12 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const dots = document.querySelectorAll('.carousel-dot');
     
     const resultsPanelTitle = document.getElementById('results-panel-title');
-    const resultsStatusBadge = document.getElementById('results-status-badge');
     const statDamage = document.getElementById('stat-damage');
     const statClaims = document.getElementById('stat-claims');
     const statState = document.getElementById('stat-state');
     const statDriver = document.getElementById('stat-driver');
-    const resultsGrid = document.querySelector('.results-grid');
 
     // Catastrophe database
     const stormDb = {
@@ -89,101 +87,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    function calculateBusinessDays(startDate, daysToCount) {
-        let currentDate = new Date(startDate);
-        let countedDays = 0;
-        while (countedDays < daysToCount) {
-            currentDate.setDate(currentDate.getDate() + 1);
-            const dayOfWeek = currentDate.getDay();
-            if (dayOfWeek !== 0 && dayOfWeek !== 6) {
-                countedDays++;
-            }
-        }
-        return currentDate;
-    }
-
-    function formatDate(date) {
-        const options = { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-    }
-
-    function renderSLA(state, baseDateString) {
-        const claimDate = new Date(baseDateString + 'T00:00:00');
-        let content = '';
-
-        if (state === 'FL') {
-            const ackDate = new Date(claimDate);
-            ackDate.setDate(ackDate.getDate() + 7); // Florida SB 2-D 7-day rule
-
-            const invDate = new Date(claimDate);
-            invDate.setDate(invDate.getDate() + 7); // 7-day investigation rule
-
-            const inspectDate = new Date(claimDate);
-            inspectDate.setDate(inspectDate.getDate() + 30); // 30-day inspection target
-
-            const payDenyDate = new Date(claimDate);
-            payDenyDate.setDate(payDenyDate.getDate() + 60); // 60-day final pay/deny
-
-            content = `
-                <div class="result-item">
-                    <span class="result-label">Acknowledgment & Instructions (7 Days)</span>
-                    <span class="result-val highlight-blue">${formatDate(ackDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Commence Physical Investigation (7 Days)</span>
-                    <span class="result-val highlight-cyan">${formatDate(invDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Property Field Inspection Target (30 Days)</span>
-                    <span class="result-val highlight-gold">${formatDate(inspectDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Florida Statutory Claim Resolution (60 Days)</span>
-                    <span class="result-val highlight-gold">${formatDate(payDenyDate)}</span>
-                </div>
-            `;
-        } else if (state === 'NY') {
-            const ackDate = calculateBusinessDays(claimDate, 15); // NY 15 working days
-            const invDate = calculateBusinessDays(claimDate, 15); // NY 15 working days
-            const formsDate = calculateBusinessDays(claimDate, 15); // NY 15 working days
-            const decisionDate = calculateBusinessDays(claimDate, 30); // NY 15-day resolution from proof (30-day simulation)
-
-            content = `
-                <div class="result-item">
-                    <span class="result-label">Claim Acknowledgment (15 Working Days)</span>
-                    <span class="result-val highlight-blue">${formatDate(ackDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Initiate Forensic Investigation (15 Working Days)</span>
-                    <span class="result-val highlight-cyan">${formatDate(invDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">Transmit Claim Forms (15 Working Days)</span>
-                    <span class="result-val">${formatDate(formsDate)}</span>
-                </div>
-                <div class="result-item">
-                    <span class="result-label">New York Claims Decision SLA (Working Days)</span>
-                    <span class="result-val highlight-gold">${formatDate(decisionDate)}</span>
-                </div>
-            `;
-        }
-
-        resultsGrid.innerHTML = content;
-    }
-
     function selectStorm(stormId) {
         const data = stormDb[stormId];
         if (!data) return;
 
         resultsPanelTitle.textContent = `${data.name} Metrics`;
-        resultsStatusBadge.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: ${data.stressColor}; display: inline-block;"></span> SLA Stress: ${data.stress}`;
         statDamage.textContent = data.damage;
         statClaims.textContent = data.claims;
         statState.textContent = data.state;
         statDriver.textContent = data.driver;
-
-        // Render SLA dates using storm's landmark date
-        renderSLA(data.calcState, data.defaultDate);
     }
 
     // ── STORM CAROUSEL INTERACTION & AUTO-ROTATION ──
