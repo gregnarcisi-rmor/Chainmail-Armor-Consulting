@@ -1173,9 +1173,8 @@ footer {
   z-index: 5;
   position: relative;
 }
-
 /* Transparent Background for Light Sections to let the body and watermark show through */
-#services, #leadership {
+#services, #leadership, #capabilities {
   background-color: rgba(255, 255, 255, 0.85) !important;
   z-index: 2;
 }
@@ -1202,4 +1201,76 @@ footer {
   opacity: 0.22; /* Increased opacity to show through translucent sections */
   pointer-events: none; /* Make it non-clickable */
   z-index: 1; /* Position it above the body but below sections */
+}
+
+/* ── ENTERPRISE CAPABILITIES GRID ── */
+#capabilities {
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#capabilities .section-title {
+  color: #0f172a;
+  background: none;
+  -webkit-text-fill-color: initial;
+  text-shadow: none;
+}
+
+#capabilities .section-subtitle {
+  color: #2563eb;
+  font-weight: 800;
+}
+
+.capabilities-grid {
+  display: grid;
+  grid-template-cols: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.capability-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 36px;
+  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-smooth);
+}
+
+.capability-card:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.08);
+}
+
+.capability-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-cobalt);
+  margin-bottom: 24px;
+  transition: var(--transition-smooth);
+}
+
+.capability-card:hover .capability-icon {
+  background: var(--accent-cobalt);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-glow);
+}
+
+.capability-card h3 {
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.capability-card p {
+  font-size: 0.88rem;
+  color: #475569;
+  line-height: 1.6;
 }
