@@ -394,7 +394,7 @@ section {
 }
 
 .service-content-slide.active {
-  display: block;
+  display: flex;
   opacity: 1;
   transform: translateY(0);
 }
@@ -575,6 +575,20 @@ section {
   margin-bottom: 20px;
 }
 
+@media(min-width: 768px) {
+  .results-grid {
+    grid-template-cols: 1fr 1fr;
+    gap: 16px;
+  }
+  .result-item {
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    background: rgba(255, 255, 255, 0.02) !important;
+    border-radius: 12px !important;
+    padding: 16px !important;
+    border-bottom: none !important;
+  }
+}
+
 .result-item {
   display: flex;
   justify-content: space-between;
@@ -622,7 +636,7 @@ section {
 /* ── TEAM SECTION ────────────────────────────────────────────────────────── */
 .team-grid {
   display: grid;
-  grid-template-cols: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 32px;
 }
 
@@ -945,16 +959,24 @@ footer {
 .storm-stats-container {
   display: grid;
   grid-template-cols: 1fr;
-  gap: 16px;
+  gap: 12px;
   background: rgba(255, 255, 255, 0.01);
   border: 1px solid var(--panel-border);
-  padding: 20px;
+  padding: 16px;
   border-radius: 16px;
 }
 
 @media(min-width: 480px) {
   .storm-stats-container {
     grid-template-cols: 1fr 1fr;
+  }
+}
+
+@media(min-width: 768px) {
+  .storm-stats-container {
+    grid-template-cols: repeat(4, 1fr);
+    gap: 8px;
+    padding: 12px;
   }
 }
 
@@ -1018,17 +1040,17 @@ footer {
 }
 
 /* Light Mode Service Cards */
-#services .service-card {
+#services .services-content-panel {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
 }
 
-#services .service-card h3 {
+#services .service-content-slide h3 {
   color: #0f172a;
 }
 
-#services .service-card p {
+#services .service-content-slide p {
   color: #475569;
 }
 
@@ -1038,11 +1060,6 @@ footer {
 
 #services .service-bullet-list svg {
   color: #2563eb;
-}
-
-#services .service-card:hover {
-  border-color: rgba(37, 99, 235, 0.3);
-  box-shadow: 0 12px 20px -8px rgba(37, 99, 235, 0.12), 0 4px 6px -2px rgba(37, 99, 235, 0.04);
 }
 
 /* Light Mode Estimator Panel */
@@ -1478,7 +1495,7 @@ footer {
 }
 
 /* Service Slides */
-.service-content-slide {
+.service-content-slide.active {
   text-align: center;
   display: flex;
   flex-direction: column;
