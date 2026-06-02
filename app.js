@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ── STORM DATA & SLA ESTIMATOR ──
+    // ── STORM DATA & CATASTROPHE IMPACT TRACKER ──
     // ── STORM CAROUSEL ELEMENTS ──
     const carouselTrack = document.querySelector('.storm-carousel-track');
     const slides = document.querySelectorAll('.storm-carousel-slide');
@@ -35,55 +35,35 @@ document.addEventListener('DOMContentLoaded', () => {
             damage: "$54 Billion+",
             claims: "~700,000 Claims",
             state: "Florida (SB 2-D / 4-A)",
-            driver: "Wind & Storm Surge",
-            stress: "Extreme",
-            stressColor: "#ef4444",
-            defaultDate: "2022-09-28",
-            calcState: "FL"
+            driver: "Wind & Storm Surge"
         },
         ida: {
             name: "Hurricane Ida (2021)",
             damage: "$36 Billion+",
             claims: "~480,000 Claims",
             state: "Louisiana / NY / NJ",
-            driver: "Wind, Rain & Flood",
-            stress: "Critical",
-            stressColor: "#f97316",
-            defaultDate: "2021-08-29",
-            calcState: "NY" // NY Reg 64 was highly tested in Northeast flooding
+            driver: "Wind, Rain & Flood"
         },
         harvey: {
             name: "Hurricane Harvey (2017)",
             damage: "$30 Billion+",
             claims: "~765,000 Claims",
             state: "Texas",
-            driver: "Inland Torrential Flood",
-            stress: "Critical",
-            stressColor: "#f97316",
-            defaultDate: "2017-08-25",
-            calcState: "FL" // Standard calendar day SLAs (using FL SB 2-D proxy for simulation)
+            driver: "Inland Torrential Flood"
         },
         irma: {
             name: "Hurricane Irma (2017)",
             damage: "$30 Billion+",
             claims: "~1.13 Million Claims",
             state: "Florida",
-            driver: "Statewide Wind & Surge",
-            stress: "Extreme",
-            stressColor: "#ef4444",
-            defaultDate: "2017-09-10",
-            calcState: "FL"
+            driver: "Statewide Wind & Surge"
         },
         sandy: {
             name: "Superstorm Sandy (2012)",
             damage: "$30 Billion+",
             claims: "~1.58 Million Claims",
             state: "New York / New Jersey",
-            driver: "Storm Surge & Inundation",
-            stress: "Extreme",
-            stressColor: "#ef4444",
-            defaultDate: "2012-10-29",
-            calcState: "NY" // Strict NY Regulation 64 compliance applied
+            driver: "Storm Surge & Inundation"
         }
     };
 
@@ -136,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Update selection in storm estimator
+        // Update selection in catastrophe tracker
         const activeSlide = slides[currentIndex];
         if (activeSlide) {
             const stormId = activeSlide.getAttribute('data-storm');

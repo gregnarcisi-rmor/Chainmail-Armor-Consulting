@@ -456,7 +456,7 @@ section {
   flex-shrink: 0;
 }
 
-/* ── ESTIMATOR PANEL ─────────────────────────────────────────────────────── */
+/* ── CATASTROPHE TRACKER PANEL ───────────────────────────────────────────────── */
 .calc-panel {
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
@@ -1016,7 +1016,7 @@ footer {
   border-bottom: 1px solid #e2e8f0;
 }
 
-#estimator {
+#tracker {
   background-color: #f8fafc;
   color: #0f172a;
   border-bottom: 1px solid #e2e8f0;
@@ -1024,7 +1024,7 @@ footer {
 
 /* Light Section Typography Override */
 #services .section-title,
-#estimator .section-title,
+#tracker .section-title,
 #leadership .section-title {
   color: #0f172a;
   background: none;
@@ -1033,7 +1033,7 @@ footer {
 }
 
 #services .section-subtitle,
-#estimator .section-subtitle,
+#tracker .section-subtitle,
 #leadership .section-subtitle {
   color: #2563eb; /* Strong Cobalt Blue Accent */
   font-weight: 800;
@@ -1062,60 +1062,60 @@ footer {
   color: #2563eb;
 }
 
-/* Light Mode Estimator Panel */
-#estimator .calc-panel {
+/* Light Mode Tracker Panel */
+#tracker .calc-panel {
   background: #ffffff;
   border: 1px solid #e2e8f0;
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
 }
 
-#estimator .calc-inputs h3 {
+#tracker .calc-inputs h3 {
   color: #0f172a;
 }
 
-#estimator .calc-inputs p {
+#tracker .calc-inputs p {
   color: #475569;
 }
 
-#estimator .form-group label {
+#tracker .form-group label {
   color: #475569;
 }
 
-#estimator .form-control {
+#tracker .form-control {
   background: #f8fafc;
   border: 1px solid #cbd5e1;
   color: #0f172a;
 }
 
-#estimator .form-control:focus {
+#tracker .form-control:focus {
   background: #ffffff;
   border-color: #2563eb;
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
 /* Storm Buttons */
-#estimator .storm-btn {
+#tracker .storm-btn {
   background: #f1f5f9;
   border: 1px solid #e2e8f0;
   color: #334155;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-#estimator .storm-btn:hover {
+#tracker .storm-btn:hover {
   background: #e2e8f0;
   color: #0f172a;
   border-color: #cbd5e1;
 }
 
-#estimator .storm-btn.active {
+#tracker .storm-btn.active {
   background: #2563eb;
   border-color: #2563eb;
   color: #ffffff;
   box-shadow: 0 4px 12px -2px rgba(37, 99, 235, 0.3);
 }
 
-/* Keep Estimator Results Dark for High-Contrast Premium Dashboard Feel */
-#estimator .calc-results {
+/* Keep Tracker Results Dark for High-Contrast Premium Dashboard Feel */
+#tracker .calc-results {
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
@@ -1261,7 +1261,7 @@ footer {
   margin-bottom: 32px;
 }
 
-#estimator, .metrics-section {
+#tracker, .metrics-section {
   background-color: rgba(248, 250, 252, 0.65) !important;
   z-index: 2;
 }
@@ -1466,8 +1466,8 @@ footer {
 /* ── READABILITY & CONTRAST ENHANCEMENTS ── */
 #services .service-content-slide p,
 #services .service-bullet-list li,
-#estimator .calc-inputs p,
-#estimator .form-group label,
+#tracker .calc-inputs p,
+#tracker .form-group label,
 #leadership .team-card p,
 .capability-content-slide p {
   color: #1e293b !important; /* High contrast dark-charcoal text */
