@@ -288,6 +288,7 @@ section {
 
 .section-header {
   margin-bottom: 64px;
+  text-align: center;
 }
 
 .section-subtitle {
@@ -1175,12 +1176,12 @@ footer {
 }
 /* Transparent Background for Light Sections to let the body and watermark show through */
 #services, #leadership, #capabilities {
-  background-color: rgba(255, 255, 255, 0.85) !important;
+  background-color: rgba(255, 255, 255, 0.65) !important;
   z-index: 2;
 }
 
 #estimator, .metrics-section {
-  background-color: rgba(248, 250, 252, 0.85) !important;
+  background-color: rgba(248, 250, 252, 0.65) !important;
   z-index: 2;
 }
 
@@ -1198,7 +1199,7 @@ footer {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 0.22; /* Increased opacity to show through translucent sections */
+  opacity: 0.28; /* Increased opacity to show through translucent sections */
   pointer-events: none; /* Make it non-clickable */
   z-index: 1; /* Position it above the body but below sections */
 }
