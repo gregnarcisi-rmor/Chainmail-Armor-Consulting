@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         
-        // Update selection in storm calculator
+        // Update selection in storm estimator
         const activeSlide = slides[currentIndex];
         if (activeSlide) {
             const stormId = activeSlide.getAttribute('data-storm');
