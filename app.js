@@ -21,9 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevBtn = document.querySelector('.carousel-arrow-prev');
     const nextBtn = document.querySelector('.carousel-arrow-next');
     const dots = document.querySelectorAll('.carousel-dot');
-    const customSimFields = document.getElementById('custom-sim-fields');
-    const stateSelect = document.getElementById('state-select');
-    const claimDateInput = document.getElementById('claim-date');
     
     const resultsPanelTitle = document.getElementById('results-panel-title');
     const resultsStatusBadge = document.getElementById('results-status-badge');
@@ -91,17 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
             calcState: "NY" // Strict NY Regulation 64 compliance applied
         }
     };
-
-    // Set default claim date to today for custom
-    if (claimDateInput) {
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        let mm = today.getMonth() + 1;
-        let dd = today.getDate();
-        if (mm < 10) mm = '0' + mm;
-        if (dd < 10) dd = '0' + dd;
-        claimDateInput.value = `${yyyy}-${mm}-${dd}`;
-    }
 
     function calculateBusinessDays(startDate, daysToCount) {
         let currentDate = new Date(startDate);
@@ -186,34 +172,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function selectStorm(stormId) {
-        if (stormId === 'custom') {
-            // Show custom input forms
-            customSimFields.style.display = 'block';
-            resultsPanelTitle.textContent = "Custom Simulation Metrics";
-            resultsStatusBadge.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: #10b981; display: inline-block;"></span> SLA Stress: Custom Active`;
-            statDamage.textContent = "Simulated";
-            statClaims.textContent = "Variable";
-            statState.textContent = stateSelect.value === 'FL' ? "Florida" : "New York";
-            statDriver.textContent = "Operational Simulation";
-            
-            // Render using custom inputs
-            renderSLA(stateSelect.value, claimDateInput.value);
-        } else {
-            // Hide custom inputs
-            customSimFields.style.display = 'none';
-            const data = stormDb[stormId];
-            if (!data) return;
+        const data = stormDb[stormId];
+        if (!data) return;
 
-            resultsPanelTitle.textContent = `${data.name} Metrics`;
-            resultsStatusBadge.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: ${data.stressColor}; display: inline-block;"></span> SLA Stress: ${data.stress}`;
-            statDamage.textContent = data.damage;
-            statClaims.textContent = data.claims;
-            statState.textContent = data.state;
-            statDriver.textContent = data.driver;
+        resultsPanelTitle.textContent = `${data.name} Metrics`;
+        resultsStatusBadge.innerHTML = `<span style="width: 8px; height: 8px; border-radius: 50%; background: ${data.stressColor}; display: inline-block;"></span> SLA Stress: ${data.stress}`;
+        statDamage.textContent = data.damage;
+        statClaims.textContent = data.claims;
+        statState.textContent = data.state;
+        statDriver.textContent = data.driver;
 
-            // Render SLA dates using storm's landmark date
-            renderSLA(data.calcState, data.defaultDate);
-        }
+        // Render SLA dates using storm's landmark date
+        renderSLA(data.calcState, data.defaultDate);
     }
 
     // ── STORM CAROUSEL INTERACTION & AUTO-ROTATION ──
@@ -328,24 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Start automatic rotation
         startAutoRotate();
-    }
-
-    // Bind custom inputs to recalculate on change
-    if (stateSelect) {
-        stateSelect.addEventListener('change', () => {
-            if (customSimFields.style.display === 'block') {
-                statState.textContent = stateSelect.value === 'FL' ? "Florida (SB 2-D)" : "New York (Reg 64)";
-                renderSLA(stateSelect.value, claimDateInput.value);
-            }
-        });
-    }
-
-    if (claimDateInput) {
-        claimDateInput.addEventListener('change', () => {
-            if (customSimFields.style.display === 'block') {
-                renderSLA(stateSelect.value, claimDateInput.value);
-            }
-        });
     }
 
     // Default load: Hurricane Ian

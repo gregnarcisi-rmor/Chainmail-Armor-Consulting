@@ -1499,41 +1499,6 @@ footer {
   color: var(--accent-gold);
 }
 
-/* Placeholder for Sim Panel */
-.custom-sim-placeholder-slide {
-  background: radial-gradient(circle, #0e172e 0%, #050811 100%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: var(--text-secondary);
-  gap: 16px;
-}
-
-.custom-sim-placeholder-slide svg {
-  color: var(--accent-electric);
-  animation: pulse 2s infinite ease-in-out;
-}
-
-.custom-sim-text {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--text-muted);
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 0.6; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.05); }
-}
-
 /* Carousel Control Arrows */
 .carousel-arrow {
   position: absolute;
