@@ -30,6 +30,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Catastrophe database
     const stormDb = {
+        milton: {
+            name: "Hurricane Milton (2024)",
+            damage: "$30 Billion+",
+            claims: "~250,000 Claims",
+            state: "Florida (West/Central)",
+            driver: "Surge, Wind & Tornadoes"
+        },
+        helene: {
+            name: "Hurricane Helene (2024)",
+            damage: "$15 Billion+",
+            claims: "~150,000 Claims",
+            state: "Florida (Big Bend) & SE",
+            driver: "Storm Surge & Inland Flood"
+        },
+        idalia: {
+            name: "Hurricane Idalia (2023)",
+            damage: "$3.5 Billion+",
+            claims: "~85,000 Claims",
+            state: "Florida (Big Bend)",
+            driver: "Storm Surge & Wind"
+        },
         ian: {
             name: "Hurricane Ian (2022)",
             damage: "$54 Billion+",
@@ -37,12 +58,26 @@ document.addEventListener('DOMContentLoaded', () => {
             state: "Florida (SB 2-D / 4-A)",
             driver: "Wind & Storm Surge"
         },
+        nicole: {
+            name: "Hurricane Nicole (2022)",
+            damage: "$1 Billion+",
+            claims: "~50,000 Claims",
+            state: "Florida (East Coast)",
+            driver: "Coastal Erosion & Surge"
+        },
         ida: {
             name: "Hurricane Ida (2021)",
             damage: "$36 Billion+",
             claims: "~480,000 Claims",
             state: "Louisiana / NY / NJ",
             driver: "Wind, Rain & Flood"
+        },
+        michael: {
+            name: "Hurricane Michael (2018)",
+            damage: "$25 Billion+",
+            claims: "~150,000 Claims",
+            state: "Florida (Panhandle)",
+            driver: "Catastrophic Wind & Surge"
         },
         harvey: {
             name: "Hurricane Harvey (2017)",
@@ -57,6 +92,20 @@ document.addEventListener('DOMContentLoaded', () => {
             claims: "~1.13 Million Claims",
             state: "Florida",
             driver: "Statewide Wind & Surge"
+        },
+        matthew: {
+            name: "Hurricane Matthew (2016)",
+            damage: "$10 Billion+",
+            claims: "~110,000 Claims",
+            state: "Florida East Coast (Brush)",
+            driver: "Wind & Storm Surge"
+        },
+        hermine: {
+            name: "Hurricane Hermine (2016)",
+            damage: "$500 Million+",
+            claims: "~20,000 Claims",
+            state: "Florida (Big Bend)",
+            driver: "Wind & Inland Flood"
         },
         sandy: {
             name: "Superstorm Sandy (2012)",
@@ -192,8 +241,8 @@ document.addEventListener('DOMContentLoaded', () => {
         startAutoRotate();
     }
 
-    // Default load: Hurricane Ian
-    selectStorm('ian');
+    // Default load: Hurricane Milton
+    selectStorm('milton');
 
     // ── SERVICES TAB SELECTION ──
     const serviceBtns = document.querySelectorAll('.service-tab-btn');
