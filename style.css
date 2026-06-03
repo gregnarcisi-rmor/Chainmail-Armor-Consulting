@@ -1771,3 +1771,22 @@ footer {
   background: var(--accent-cobalt);
   transform: scale(1.2);
 }
+
+/* ── GOOGLE SCHEDULING BUTTON DECORATOR ── */
+button.calendar-scheduling-button {
+  font-family: var(--font-heading), sans-serif !important;
+  font-size: 0.8rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  padding: 10px 20px !important;
+  border-radius: 20px !important;
+  transition: var(--transition-smooth) !important;
+  box-shadow: 0 4px 10px rgba(3, 155, 229, 0.2) !important;
+}
+
+button.calendar-scheduling-button:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) scale(1.02) !important;
+  box-shadow: 0 6px 14px rgba(3, 155, 229, 0.35) !important;
+}
