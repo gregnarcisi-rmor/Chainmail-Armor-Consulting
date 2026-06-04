@@ -51,144 +51,159 @@
         <!-- ── INTERACTIVE CAPABILITIES SECTION ── -->
         <section id="capabilities" class="capabilities-section">
             <div class="container">
-                <div class="capabilities-showcase">
+                <div class="services-showcase" style="max-width: 900px; margin: 0 auto;">
                     <!-- Tabs Navigation -->
-                    <div class="capabilities-nav">
+                    <div class="services-tabs">
                         <!-- Tab 1 -->
-                        <button class="capability-tab-btn active" data-capability="consulting">
-                            <div class="tab-btn-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                                </svg>
-                            </div>
-                            <div class="tab-btn-content">
-                                <h4>Claims Consulting</h4>
-                                <span class="tab-btn-desc">Procurement & advocacy</span>
-                            </div>
+                        <button class="service-tab-btn active" data-service="consulting">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                            <span>Claims Consulting</span>
                         </button>
 
                         <!-- Tab 2 -->
-                        <button class="capability-tab-btn" data-capability="optimization">
-                            <div class="tab-btn-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                                    <polyline points="2 17 12 22 22 17"></polyline>
-                                    <polyline points="2 12 12 17 22 12"></polyline>
-                                </svg>
-                            </div>
-                            <div class="tab-btn-content">
-                                <h4>Process Optimization</h4>
-                                <span class="tab-btn-desc">Workflow & architecture</span>
-                            </div>
+                        <button class="service-tab-btn" data-service="optimization">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                <polyline points="2 17 12 22 22 17"></polyline>
+                                <polyline points="2 12 12 17 22 12"></polyline>
+                            </svg>
+                            <span>Process Optimization</span>
                         </button>
 
                         <!-- Tab 3 -->
-                        <button class="capability-tab-btn" data-capability="readiness">
-                            <div class="tab-btn-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                                    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="tab-btn-content">
-                                <h4>Operational Readiness</h4>
-                                <span class="tab-btn-desc">Training & preparedness</span>
-                            </div>
+                        <button class="service-tab-btn" data-service="readiness">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                            </svg>
+                            <span>Operational Readiness</span>
                         </button>
                     </div>
 
                     <!-- Tabs Content Panel -->
-                    <div class="capabilities-content-panel">
+                    <div class="services-content-panel">
                         <!-- Slide 1: Claims Consulting -->
-                        <div class="capability-content-slide active" id="cap-consulting">
-                            <div class="capability-slide-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                </svg>
-                            </div>
-                            <h3>Claims Consulting & Advisory</h3>
-                            <p>We provide senior executive guidance to streamline claims pipelines, align procurement structures with carrier operations, and manage large-scale dispute resolution workflows.</p>
-                            <div class="capability-slide-bullets">
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Enterprise Procurement Alignment:</strong> Structuring and optimizing vendor relationships, independent adjusting firm SLA frameworks, and software integrations.</span>
+                        <div class="service-content-slide active" id="service-consulting">
+                            <div class="service-slide-detail">
+                                <div class="service-slide-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                                    </svg>
                                 </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Litigation & Appraisal Engineering:</strong> Implementing defensible, structured processes to manage disputed property claims and transfer litigation exposures to appraisal tracks.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Predictive Resource Modeling:</strong> Projecting field deployment requirements and claims volume scaling metrics based on historic storm models.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Enterprise Business Continuity:</strong> Formulating disaster recovery protocols and executive-level command structures for severe CAT scenarios.</span>
-                                </div>
+                                <h3>Claims Consulting & Advisory</h3>
+                                <p>We provide senior executive guidance to streamline claims pipelines, align procurement structures with carrier operations, and manage large-scale dispute resolution workflows.</p>
+                                <ul class="service-bullet-list" style="display: inline-block; text-align: left; max-width: 700px; margin: 12px auto 0 auto;">
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Enterprise Procurement Alignment:</strong> Structuring and optimizing vendor relationships, independent adjusting firm SLA frameworks, and software integrations.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Litigation & Appraisal Engineering:</strong> Implementing defensible, structured processes to manage disputed property claims and transfer litigation exposures to appraisal tracks.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Predictive Resource Modeling:</strong> Projecting field deployment requirements and claims volume scaling metrics based on historic storm models.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Enterprise Business Continuity:</strong> Formulating disaster recovery protocols and executive-level command structures for severe CAT scenarios.</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
                         <!-- Slide 2: Process Optimization -->
-                        <div class="capability-content-slide" id="cap-optimization">
-                            <div class="capability-slide-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                                </svg>
-                            </div>
-                            <h3>Strategic Process Optimization</h3>
-                            <p>We engineer operational frameworks, design clean data capture loops, and customize claims processing workflows for specialized perils and challenging geographic regions.</p>
-                            <div class="capability-slide-bullets">
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>System Architecture & Data Capture:</strong> Designing clean integration pipelines between intake systems, field estimating tools, and core carrier databases.</span>
+                        <div class="service-content-slide" id="service-optimization">
+                            <div class="service-slide-detail">
+                                <div class="service-slide-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="3"></circle>
+                                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                    </svg>
                                 </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>CAT Code Engineering:</strong> Establishing storm-specific process guidelines, estimate templates, and automated compliance auditing rules.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Niche Product Customization:</strong> Engineering specialized processing pipelines for unique policy types, including manufactured housing and mobile home product lines.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Logistical Conflict Resolution:</strong> Developing localized, tactical response workflows for hard-to-reach barrier islands, keys, and severe access-restricted disaster zones (e.g., Sanibel Island and the Florida Keys).</span>
-                                </div>
+                                <h3>Strategic Process Optimization</h3>
+                                <p>We engineer operational frameworks, design clean data capture loops, and customize claims processing workflows for specialized perils and challenging geographic regions.</p>
+                                <ul class="service-bullet-list" style="display: inline-block; text-align: left; max-width: 700px; margin: 12px auto 0 auto;">
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>System Architecture & Data Capture:</strong> Designing clean integration pipelines between intake systems, field estimating tools, and core carrier databases.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>CAT Code Engineering:</strong> Establishing storm-specific process guidelines, estimate templates, and automated compliance auditing rules.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Niche Product Customization:</strong> Engineering specialized processing pipelines for unique policy types, including manufactured housing and mobile home product lines.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Logistical Conflict Resolution:</strong> Developing localized, tactical response workflows for hard-to-reach barrier islands, keys, and severe access-restricted disaster zones (e.g., Sanibel Island and the Florida Keys).</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
 
                         <!-- Slide 3: Operational Readiness -->
-                        <div class="capability-content-slide" id="cap-readiness">
-                            <div class="capability-slide-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
-                            </div>
-                            <h3>Training & Operational Readiness</h3>
-                            <p>We build readiness programs, technical estimating academies, and automated onboarding playbooks to scale up human capital ahead of historic catastrophe events.</p>
-                            <div class="capability-slide-bullets">
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Leadership Development Academies:</strong> Targeted executive training programs for Team Leads, Field Supervisors, Quality Control Auditors, and Claims Managers.</span>
+                        <div class="service-content-slide" id="service-readiness">
+                            <div class="service-slide-detail">
+                                <div class="service-slide-icon">
+                                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                        <circle cx="9" cy="7" r="4"></circle>
+                                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                    </svg>
                                 </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Technical Estimating Mastery:</strong> Advanced training curricula in Xactimate and Symbility, emphasizing structural estimating precision and carrier-specific guidelines.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Massive-Scale Readiness Drills:</strong> Conducting stress-test simulations of staffing ramp-ups, QA queues, and high-frequency intake bottlenecks.</span>
-                                </div>
-                                <div class="bullet-item">
-                                    <span class="bullet-icon">✓</span>
-                                    <span><strong>Rapid Onboarding Systems:</strong> Creating high-impact independent adjuster orientation presentation playbooks and onboarding resources to ensure day-one operational alignment.</span>
-                                </div>
+                                <h3>Training & Operational Readiness</h3>
+                                <p>We build readiness programs, technical estimating academies, and automated onboarding playbooks to scale up human capital ahead of historic catastrophe events.</p>
+                                <ul class="service-bullet-list" style="display: inline-block; text-align: left; max-width: 700px; margin: 12px auto 0 auto;">
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Leadership Development Academies:</strong> Targeted executive training programs for Team Leads, Field Supervisors, Quality Control Auditors, and Claims Managers.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Technical Estimating Mastery:</strong> Advanced training curricula in Xactimate and Symbility, emphasizing structural estimating precision and carrier-specific guidelines.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Massive-Scale Readiness Drills:</strong> Conducting stress-test simulations of staffing ramp-ups, QA queues, and high-frequency intake bottlenecks.</span>
+                                    </li>
+                                    <li>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                        <span><strong>Rapid Onboarding Systems:</strong> Creating high-impact independent adjuster orientation presentation playbooks and onboarding resources to ensure day-one operational alignment.</span>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
