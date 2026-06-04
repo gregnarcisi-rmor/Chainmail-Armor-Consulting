@@ -6,13 +6,16 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ── NAVBAR SCROLL EFFECT ──
     const header = document.querySelector('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    if (header) {
+        window.addEventListener('scroll', () => {
+            const isHomePage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/') || window.location.pathname === '';
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else if (isHomePage) {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
 
     // ── STORM DATA & CATASTROPHE IMPACT TRACKER ──
     // ── STORM CAROUSEL ELEMENTS ──
@@ -120,20 +123,22 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = stormDb[stormId];
         if (!data) return;
 
-        resultsPanelTitle.textContent = `${data.name} Metrics`;
-        statDamage.textContent = data.damage;
-        statClaims.textContent = data.claims;
-        statState.textContent = data.state;
-        statDriver.textContent = data.driver;
+        if (resultsPanelTitle) resultsPanelTitle.textContent = `${data.name} Metrics`;
+        if (statDamage) statDamage.textContent = data.damage;
+        if (statClaims) statClaims.textContent = data.claims;
+        if (statState) statState.textContent = data.state;
+        if (statDriver) statDriver.textContent = data.driver;
     }
 
     // ── STORM CAROUSEL INTERACTION & AUTO-ROTATION ──
     let currentIndex = 0;
-    const slideCount = slides.length;
+    const slideCount = slides ? slides.length : 0;
     let autoRotateTimer = null;
     const autoRotateDelay = 5500; // Rotate every 5.5 seconds for motion
 
     function updateCarousel(index) {
+        if (slideCount === 0) return;
+        
         if (index < 0) {
             index = slideCount - 1;
         } else if (index >= slideCount) {
@@ -148,32 +153,37 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // Update active class on slides
-        slides.forEach((slide, idx) => {
-            if (idx === currentIndex) {
-                slide.classList.add('active');
-            } else {
-                slide.classList.remove('active');
-            }
-        });
+        if (slides) {
+            slides.forEach((slide, idx) => {
+                if (idx === currentIndex) {
+                    slide.classList.add('active');
+                } else {
+                    slide.classList.remove('active');
+                }
+            });
+        }
         
         // Update active class on indicator dots
-        dots.forEach((dot, idx) => {
-            if (idx === currentIndex) {
-                dot.classList.add('active');
-            } else {
-                dot.classList.remove('active');
-            }
-        });
+        if (dots) {
+            dots.forEach((dot, idx) => {
+                if (idx === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
         
         // Update selection in catastrophe tracker
-        const activeSlide = slides[currentIndex];
-        if (activeSlide) {
+        if (slides && slides[currentIndex]) {
+            const activeSlide = slides[currentIndex];
             const stormId = activeSlide.getAttribute('data-storm');
             selectStorm(stormId);
         }
     }
     
     function startAutoRotate() {
+        if (slideCount === 0) return;
         if (autoRotateTimer) clearInterval(autoRotateTimer);
         autoRotateTimer = setInterval(() => {
             updateCarousel(currentIndex + 1);
@@ -188,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     // Bind click events for navigation
-    if (prevBtn && nextBtn && carouselTrack) {
+    if (prevBtn && nextBtn && carouselTrack && slideCount > 0) {
         prevBtn.addEventListener('click', (e) => {
             e.preventDefault();
             stopAutoRotate();
@@ -204,14 +214,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         // Bind dot clicks
-        dots.forEach((dot, idx) => {
-            dot.addEventListener('click', (e) => {
-                e.preventDefault();
-                stopAutoRotate();
-                updateCarousel(idx);
-                startAutoRotate(); // Resume after manual navigation
+        if (dots) {
+            dots.forEach((dot, idx) => {
+                dot.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    stopAutoRotate();
+                    updateCarousel(idx);
+                    startAutoRotate(); // Resume after manual navigation
+                });
             });
-        });
+        }
         
         // Touch gesture swiping support for mobile phones
         let startX = 0;
@@ -242,7 +254,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Default load: Hurricane Milton
-    selectStorm('milton');
+    if (resultsPanelTitle) {
+        selectStorm('milton');
+    }
 
     // ── SERVICES TAB SELECTION ──
     const serviceBtns = document.querySelectorAll('.service-tab-btn');
