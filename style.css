@@ -1010,7 +1010,7 @@ footer {
 /* ── HYBRID LIGHT THEME STYLES ─────────────────────────────────────────── */
 
 /* Light Sections Base Styling */
-#services, #leadership {
+#services, #leadership, #expertise {
   background-color: #ffffff;
   color: #0f172a;
   border-bottom: 1px solid #e2e8f0;
@@ -1025,7 +1025,8 @@ footer {
 /* Light Section Typography Override */
 #services .section-title,
 #tracker .section-title,
-#leadership .section-title {
+#leadership .section-title,
+#expertise .section-title {
   color: #0f172a;
   background: none;
   -webkit-text-fill-color: initial;
@@ -1034,7 +1035,8 @@ footer {
 
 #services .section-subtitle,
 #tracker .section-subtitle,
-#leadership .section-subtitle {
+#leadership .section-subtitle,
+#expertise .section-subtitle {
   color: #2563eb; /* Strong Cobalt Blue Accent */
   font-weight: 800;
 }
@@ -1247,13 +1249,13 @@ footer {
   position: relative;
 }
 /* Transparent Background for Light Sections to let the body and watermark show through */
-#services, #leadership, #capabilities {
+#services, #leadership, #capabilities, #expertise {
   background-color: rgba(255, 255, 255, 0.65) !important;
   z-index: 2;
 }
 
-#services, #capabilities {
-  padding: 60px 0;
+#services, #capabilities, #expertise {
+  padding: 80px 0;
 }
 
 #services .section-header,
@@ -1941,5 +1943,89 @@ a.calendar-scheduling-button:hover {
   .timeline-content {
     padding: 24px;
   }
+}
+
+/* ── EXPERTISE SECTION STYLING (INDEX) ── */
+.expertise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  margin-top: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.expertise-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expertise-card:hover {
+  border-color: var(--accent-cobalt);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.1);
+}
+
+.expertise-card-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent-cobalt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.expertise-card-icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-cobalt);
+  display: block;
+}
+
+.expertise-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.expertise-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+  width: 100%;
+}
+
+.expertise-list li {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1e293b;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.expertise-list li::before {
+  content: "✓";
+  color: var(--accent-cobalt);
+  font-weight: bold;
+  font-size: 1.15rem;
+  line-height: 1;
+  flex-shrink: 0;
 }
 
